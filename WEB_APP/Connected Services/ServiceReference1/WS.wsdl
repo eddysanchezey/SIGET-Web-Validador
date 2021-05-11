@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RetornarAcceso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarAccesoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarAccesoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarRol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarRolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarRolResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarCombox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="abc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="consulta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarComboxResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarEstadoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LLenarListaGerente">
+        <s:complexType />
+      </s:element>
+      <s:element name="LLenarListaGerenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LLenarListaGerenteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LLenarListaJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nomb_Gerente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LLenarListaJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LLenarListaJobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Subserviceline">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Job" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubservicelineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubservicelineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Job" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gerente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Senior" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_registro" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_prevista" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistroTicketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroTicket_v2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Job" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gerente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Senior" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_registro" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_prevista" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEM_Prueba_compras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEM_Tablero_compras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEM_Prueba_ventas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEM_Tablero_ventas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEM_Prueba_diario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEM_Tablero_diario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Prueba_activofijo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Tablero_activofijo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Prueba_kardex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Tablero_kardex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Prueba_inventariobalance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Tablero_inventariobalance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Prueba_costos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Tablero_costos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Prueba_kardex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Tablero_kardex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Prueba_compras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Tablero_compras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Prueba_diario5_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Tablero_diario5_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Prueba_diario5_3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_Tablero_diario5_3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PC_ingresar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Prueba_kardex_adic" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LEA_Tablero_kardex_adic" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_eficiencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDJ_extendido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XML_compras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XML_ventas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cruce_FV_LE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SIAF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroTicket_v2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistroTicket_v2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fecha_fin_ult_ticket">
+        <s:complexType />
+      </s:element>
+      <s:element name="Fecha_fin_ult_ticketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_fin_ult_ticketResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketProcesando">
+        <s:complexType />
+      </s:element>
+      <s:element name="TicketProcesandoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TicketProcesandoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NumeroTicketsProcesando">
+        <s:complexType />
+      </s:element>
+      <s:element name="NumeroTicketsProcesandoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroTicketsProcesandoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FechaPrevista" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditarEstadoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="VerificarCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarCodigoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornarAccesoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarAcceso" />
+  </wsdl:message>
+  <wsdl:message name="RetornarAccesoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarAccesoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarRolSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarRol" />
+  </wsdl:message>
+  <wsdl:message name="RetornarRolSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarComboxSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarCombox" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarComboxSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LLenarListaGerenteSoapIn">
+    <wsdl:part name="parameters" element="tns:LLenarListaGerente" />
+  </wsdl:message>
+  <wsdl:message name="LLenarListaGerenteSoapOut">
+    <wsdl:part name="parameters" element="tns:LLenarListaGerenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LLenarListaJobSoapIn">
+    <wsdl:part name="parameters" element="tns:LLenarListaJob" />
+  </wsdl:message>
+  <wsdl:message name="LLenarListaJobSoapOut">
+    <wsdl:part name="parameters" element="tns:LLenarListaJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubservicelineSoapIn">
+    <wsdl:part name="parameters" element="tns:Subserviceline" />
+  </wsdl:message>
+  <wsdl:message name="SubservicelineSoapOut">
+    <wsdl:part name="parameters" element="tns:SubservicelineResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistroTicket" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistroTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTicket_v2SoapIn">
+    <wsdl:part name="parameters" element="tns:RegistroTicket_v2" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTicket_v2SoapOut">
+    <wsdl:part name="parameters" element="tns:RegistroTicket_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="Fecha_fin_ult_ticketSoapIn">
+    <wsdl:part name="parameters" element="tns:Fecha_fin_ult_ticket" />
+  </wsdl:message>
+  <wsdl:message name="Fecha_fin_ult_ticketSoapOut">
+    <wsdl:part name="parameters" element="tns:Fecha_fin_ult_ticketResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketProcesandoSoapIn">
+    <wsdl:part name="parameters" element="tns:TicketProcesando" />
+  </wsdl:message>
+  <wsdl:message name="TicketProcesandoSoapOut">
+    <wsdl:part name="parameters" element="tns:TicketProcesandoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NumeroTicketsProcesandoSoapIn">
+    <wsdl:part name="parameters" element="tns:NumeroTicketsProcesando" />
+  </wsdl:message>
+  <wsdl:message name="NumeroTicketsProcesandoSoapOut">
+    <wsdl:part name="parameters" element="tns:NumeroTicketsProcesandoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:EditarEstado" />
+  </wsdl:message>
+  <wsdl:message name="EditarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:EditarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarCodigo" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarCodigoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSSoap">
+    <wsdl:operation name="RetornarAcceso">
+      <wsdl:input message="tns:RetornarAccesoSoapIn" />
+      <wsdl:output message="tns:RetornarAccesoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRol">
+      <wsdl:input message="tns:RetornarRolSoapIn" />
+      <wsdl:output message="tns:RetornarRolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCombox">
+      <wsdl:input message="tns:ActualizarComboxSoapIn" />
+      <wsdl:output message="tns:ActualizarComboxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEstado">
+      <wsdl:input message="tns:ConsultarEstadoSoapIn" />
+      <wsdl:output message="tns:ConsultarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LLenarListaGerente">
+      <wsdl:input message="tns:LLenarListaGerenteSoapIn" />
+      <wsdl:output message="tns:LLenarListaGerenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LLenarListaJob">
+      <wsdl:input message="tns:LLenarListaJobSoapIn" />
+      <wsdl:output message="tns:LLenarListaJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Subserviceline">
+      <wsdl:input message="tns:SubservicelineSoapIn" />
+      <wsdl:output message="tns:SubservicelineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTicket">
+      <wsdl:input message="tns:RegistroTicketSoapIn" />
+      <wsdl:output message="tns:RegistroTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTicket_v2">
+      <wsdl:input message="tns:RegistroTicket_v2SoapIn" />
+      <wsdl:output message="tns:RegistroTicket_v2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fecha_fin_ult_ticket">
+      <wsdl:input message="tns:Fecha_fin_ult_ticketSoapIn" />
+      <wsdl:output message="tns:Fecha_fin_ult_ticketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketProcesando">
+      <wsdl:input message="tns:TicketProcesandoSoapIn" />
+      <wsdl:output message="tns:TicketProcesandoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NumeroTicketsProcesando">
+      <wsdl:input message="tns:NumeroTicketsProcesandoSoapIn" />
+      <wsdl:output message="tns:NumeroTicketsProcesandoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarEstado">
+      <wsdl:input message="tns:EditarEstadoSoapIn" />
+      <wsdl:output message="tns:EditarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCodigo">
+      <wsdl:input message="tns:VerificarCodigoSoapIn" />
+      <wsdl:output message="tns:VerificarCodigoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSSoap" type="tns:WSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarAcceso">
+      <soap:operation soapAction="http://tempuri.org/RetornarAcceso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRol">
+      <soap:operation soapAction="http://tempuri.org/RetornarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCombox">
+      <soap:operation soapAction="http://tempuri.org/ActualizarCombox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEstado">
+      <soap:operation soapAction="http://tempuri.org/ConsultarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LLenarListaGerente">
+      <soap:operation soapAction="http://tempuri.org/LLenarListaGerente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LLenarListaJob">
+      <soap:operation soapAction="http://tempuri.org/LLenarListaJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subserviceline">
+      <soap:operation soapAction="http://tempuri.org/Subserviceline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTicket">
+      <soap:operation soapAction="http://tempuri.org/RegistroTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTicket_v2">
+      <soap:operation soapAction="http://tempuri.org/RegistroTicket_v2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fecha_fin_ult_ticket">
+      <soap:operation soapAction="http://tempuri.org/Fecha_fin_ult_ticket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketProcesando">
+      <soap:operation soapAction="http://tempuri.org/TicketProcesando" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroTicketsProcesando">
+      <soap:operation soapAction="http://tempuri.org/NumeroTicketsProcesando" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarEstado">
+      <soap:operation soapAction="http://tempuri.org/EditarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCodigo">
+      <soap:operation soapAction="http://tempuri.org/VerificarCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSoap12" type="tns:WSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarAcceso">
+      <soap12:operation soapAction="http://tempuri.org/RetornarAcceso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRol">
+      <soap12:operation soapAction="http://tempuri.org/RetornarRol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCombox">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarCombox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEstado">
+      <soap12:operation soapAction="http://tempuri.org/ConsultarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LLenarListaGerente">
+      <soap12:operation soapAction="http://tempuri.org/LLenarListaGerente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LLenarListaJob">
+      <soap12:operation soapAction="http://tempuri.org/LLenarListaJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subserviceline">
+      <soap12:operation soapAction="http://tempuri.org/Subserviceline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTicket">
+      <soap12:operation soapAction="http://tempuri.org/RegistroTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTicket_v2">
+      <soap12:operation soapAction="http://tempuri.org/RegistroTicket_v2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fecha_fin_ult_ticket">
+      <soap12:operation soapAction="http://tempuri.org/Fecha_fin_ult_ticket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketProcesando">
+      <soap12:operation soapAction="http://tempuri.org/TicketProcesando" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroTicketsProcesando">
+      <soap12:operation soapAction="http://tempuri.org/NumeroTicketsProcesando" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarEstado">
+      <soap12:operation soapAction="http://tempuri.org/EditarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCodigo">
+      <soap12:operation soapAction="http://tempuri.org/VerificarCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS">
+    <wsdl:port name="WSSoap" binding="tns:WSSoap">
+      <soap:address location="http://localhost:65276/WS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSoap12" binding="tns:WSSoap12">
+      <soap12:address location="http://localhost:65276/WS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

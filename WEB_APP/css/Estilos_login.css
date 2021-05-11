@@ -1,0 +1,24 @@
+﻿body {
+}
+
+#Login1_LoginButton {
+    border-radius: 10px;
+    color: #808080;
+    padding: 3px;
+    width:90%;
+    margin:2%
+}
+
+#Login1_UserName {
+    border-radius: 10px;
+    color: #808080;
+    padding: 3px;
+    margin-bottom:5px
+}
+
+#Login1_Password {
+    border-radius: 10px;
+    color: #808080;
+    padding: 3px;
+    margin-bottom: 5px
+}
